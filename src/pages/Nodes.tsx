@@ -84,7 +84,7 @@ export const NodesPage = (): JSX.Element => {
               </Mono>,
               <Mono key="hops">
                 {node.lastHeard !== 0
-                  ? node.viaMqtt === false && node.hopsAway === 0
+                  ? node.viaMqtt === false && isFieldSet(node, Protobuf.Mesh.NodeInfoSchema.field.hopsAway) && node.hopsAway === 0
                     ? "Direct"
                     : `${node.hopsAway.toString()} ${
                         node.hopsAway > 1 ? "hops" : "hop"
